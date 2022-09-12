@@ -1,0 +1,57 @@
+<script langauage="javascript">
+
+    var name = 'Ridwan';
+    var jabatan = 'Manager';
+    var status = 'Menikah';
+    var gapok;
+
+    if (jabatan == 'Manager') {
+        gapok = 15000000;
+    } else if (jabatan == 'Asisten Manager') {
+        gapok = 1000000;
+    } else if (jabatan == 'Staff') {
+        gapok = 500000;
+    } else {
+        gapok = 0;
+    }
+
+    var tunjanganJabatan = gapok * 0.15;
+    var bpjs = gapok * 0.1;
+    var tunjanganKeluarga = (status == 'Menikah')  ? gapok * 0.2 : 0;
+    var totalGaji = gapok + tunjanganJabatan + bpjs + tunjanganKeluarga;
+
+    document.write(`
+    <h1 align="center">Data Pegawai</h1>
+    <table border="1" cellpadding="10" align="center">
+      <thead>
+        <tr bgcolor="aqua">
+          <th>Nama Pegawai</th>
+          <th>Jabatan</th>
+          <th>Status</th>
+          <th>Gaji Pokok</th>
+          <th>Tunjangan Jabatan</th>
+          <th>BPJS</th>
+          <th>Tunjangan Keluarga</th>
+        </tr>
+      </thead>
+
+      <tbody align="justify">
+        <tr>
+          <td>${name}</td>
+          <td>${jabatan}</td>
+          <td>${status}</td>
+          <td>Rp. ${gapok.toLocaleString()}</td>
+          <td>Rp. ${tunjanganJabatan.toLocaleString()}</td>
+          <td>Rp. ${bpjs.toLocaleString()}</td>
+          <td>Rp. ${tunjanganKeluarga.toLocaleString()}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td align="center">Total Gaji</td>
+          <td colspan="6">Rp. ${totalGaji.toLocaleString()}</td>
+        </tr>
+      </tfoot>
+    </table>
+  `);
+</script>
